@@ -12,7 +12,7 @@
     })
 
 
-    db = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/urlshort')
+    db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/urlshort')
 
     var Url = new mongoose.Schema({
         full: String,
