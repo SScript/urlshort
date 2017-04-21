@@ -10,9 +10,9 @@
     app.get('/', function(req, res) {                       ////////   Startup page, index.html
         res.sendFile(path.join(__dirname + '/index.html'));
     })
+    var mongourl = 'mongodb://urluser:url505895@ds123930.mlab.com:23930/urlshort'
 
-
-    db = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/urlshort')
+    db = mongoose.connect(mongourl || 'mongodb://localhost/urlshort')
 
     var Url = new mongoose.Schema({
         full: String,
