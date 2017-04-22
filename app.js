@@ -10,9 +10,7 @@
         res.sendFile(path.join(__dirname + '/index.html')); // link to index.html page
     })
 
-    // var mongourl = 'mongodb://urluser:url505895@ds123930.mlab.com:23930/urlshort'   // connect to mongoLab db
-    // db = mongoose.connect(mongourl || 'mongodb://localhost/urlshort')
-
+    var mongourl = (process.env.MONGO_URI || 'mongodb://localhost/urlshort')   // connect to mongoLab db
 
     var Url = new mongoose.Schema({        // url schema consists of two fields
         full: String,
@@ -26,7 +24,7 @@
      url.id = new ObjectID();
 */
          mongoose.Promise = global.Promise
-    db = mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/urlshort', function(err) {
+    db = mongoose.connect(mongourl, function(err) {
       if (err) {
         console.log(err);
       } else { 
