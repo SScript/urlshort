@@ -26,7 +26,7 @@
      url.id = new ObjectID();
 */
          mongoose.Promise = global.Promise
-    db = mongoose.connect(process.env.MONGOGB || process.env.MONGOLAB_URI || 'mongodb://localhost/urlshort', function(err) {
+    db = mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/urlshort', function(err) {
       if (err) {
         console.log(err);
       } else { 
